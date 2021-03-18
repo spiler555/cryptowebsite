@@ -1,0 +1,28 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<h2 class="display-4 font-weight-light">สมาชิกกลุ่ม</h2>
+<p class="font-italic text-muted">มหาวิทยาลัยศรีนครินทรวิโรฒ</p>
+      
+    <div class="row text-center">
+      <!-- Team item-->
+      {% for i in range(student|length) %}
+      <div class="col-xl-4 col-sm-6 mb-5">
+        <div style="background-color: #293233;" class=" rounded shadow-sm py-5 px-4"><img src="{{student[i].img}}" alt="" width="210" height="210" class="mb-3 img-thumbnail shadow-sm">
+          <h5 style="text-align: center;">{{student[i].name}}</h5><span class="small text-uppercase">{{student[i].student_id}}</span>
+        </div>
+      </div>
+      {% endfor %}
+      <!-- End-->
+
+    </div>
+  </div>
+
+
+
+{% endblock %}
+

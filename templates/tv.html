@@ -1,0 +1,36 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<h2>กราฟ {{ticker}}/USD <i class="fas fa-dollar-sign"></i>&nbsp;
+    {% if ticker != 'BTC' %}
+    <a style="text-decoration: none; color: white;" href="/market/btc/{{ticker}}"><button class="btn btn-info" ><i class="fas fa-random"></i><b> {{ticker}}/BTC</b></button></a>
+    {% endif %}
+</h2>
+  <!-- TradingView Widget BEGIN -->
+<div class="tradingview-widget-container">
+    <div id="tradingview_d5814"></div>
+    <div class="tradingview-widget-copyright"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+    <script type="text/javascript">
+    new TradingView.widget(
+    {
+    "width": "100%",
+    "height": "600",
+    "symbol": "BINANCE:{{ticker}}USDT",
+    "timezone": "Etc/UTC",
+    "theme": "dark",
+    "style": "1",
+    "locale": "th_TH",
+    "toolbar_bg": "#f1f3f6",
+    "enable_publishing": false,
+    "withdateranges": true,
+    "range": "YTD",
+    "details": true,
+    "hide_side_toolbar": false,
+    "allow_symbol_change": true,
+    "container_id": "tradingview_d5814"
+  }
+    );
+    </script>
+  </div>
+  <!-- TradingView Widget END -->
+	{% endblock %}

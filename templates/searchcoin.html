@@ -1,0 +1,49 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+
+<h1> <b>ค้นหาราคาเหรียญจาก Binance</b></h1><br>
+<form>
+  <input class="form-control  form-control-lg" name="coin" type="text" placeholder="ระบุเป็นตัวย่อเหรียญ (BTC,ETH,ADA)">
+
+    <br>
+    <button type="submit" value="Submit" class="btn btn-outline-light btn-lg"> <i class="fa fa-search" aria-hidden="true"></i> <b> Search Coin</b></button>
+    
+</form>
+
+
+{% if coin_data == None %}
+
+<br>
+<h1 style="color: red;"><b>404 coin not found</b></h1>
+<br>
+{% else %}
+<br>
+<h2 id="price"><i class="fab fa-gg-circle"></i> &nbsp; <b>{{coin_data}}</b> <button type='button' class="btn btn-success" id="reload"><i class="fas fa-sync-alt"></i></button>
+    <a style="color: aliceblue;" href="/market/{{coin}}"> <button type="button" class="btn btn-info"><b><i class="fas fa-random"></i> ดูกราฟ {{coin}}</b></button></a>
+</h2>
+<br>
+<p>ข้อมูล ณ เวลา: {{time}}</p>
+
+<script>
+$(function(){
+    // don't cache ajax or content won't be fresh
+    $.ajaxSetup ({
+        cache: false
+    });
+    
+    // load() functions
+    var loadUrl = window.location.href; 
+    $("#reload").click(function(){
+        $(document.body).load(loadUrl);
+    });
+
+// end  
+});
+
+</script>
+
+{% endif %}
+
+
+{% endblock %}

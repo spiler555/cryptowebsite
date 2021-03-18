@@ -1,0 +1,68 @@
+{% extends 'base_layout.html' %}
+
+{% block body %}
+<style>
+    
+</style>
+<div>
+    <p>{{"มูลค่าตลาดทั้งหมด: {:,.2f} บาท".format(marketcap.data.total_market_cap.thb)}} 
+        <span {% if marketcap.data.market_cap_change_percentage_24h_usd < 0 %} style="color: #f74b6c"
+        {% else %} 
+        style="color: #02d667" 
+        {% endif %}>
+            {% if marketcap.data.market_cap_change_percentage_24h_usd > 0 %}
+            <i class="fas fa-sort-up"></i>
+            {% else %}
+            <i class="fas fa-sort-down"></i>
+            {% endif %}
+            {{"{:,.1f}%".format(marketcap.data.market_cap_change_percentage_24h_usd)}}
+        </span>
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        <span>
+            {{"Volume ตลาด 24 ชั่วโมง: {:,.2f} บาท".format(marketcap.data.total_volume.thb)}}
+        </span>
+    </p>
+    <p>
+        <span>
+            {{"Bitcoin Dominance: {:,.2f} %".format(marketcap.data.market_cap_percentage.btc)}}
+        </span>
+        &nbsp;&nbsp; | &nbsp;&nbsp;
+        <span>
+            {{"Ethereum Dominance: {:,.2f} %".format(marketcap.data.market_cap_percentage.eth)}}
+        </span>
+    </p>
+</div>
+<h1>ราคา Cryptocurrency วันนี้</h1><br>
+
+<table style="background-color: #293233;" class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th></th>
+        <th scope="col">ชื่อเหรียญ</th>
+        <th scope="col">24h %</th>
+        <th scope="col">ราคาปัจจุบัน</th>
+        <th scope="col">All Time High <i class="fas fa-crown"></i></th>
+        <th scope="col">Market Cap</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for i in range(coinList|length) %}
+      <tr>
+        <th scope="row">{{i+1}}</th>
+        <td> <img src="{{coinList[i].image}}" alt="coin logo" width="25" height="25" > </td>
+        <td><a href="/market/{{coinList[i].symbol|upper}}">{{coinList[i].name}} ({{coinList[i].symbol|upper}})</a></td>
+        <td {% if coinList[i].price_change_percentage_24h < 0 %} style="color: #f74b6c" {% else %} style="color: #02d667" {% endif %} >
+            {{"{:,.1f}%".format(coinList[i].price_change_percentage_24h)}}
+        </td>
+        <td>{{"{:,.2f} บาท".format(coinList[i].current_price * thb)}}</td>
+        <td>{{"{:,.2f} บาท".format(coinList[i].ath * thb)}}</td>
+        <td>{{"{:,.2f} บาท".format(coinList[i].market_cap * thb)}}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  
+{% endblock %}
+
+

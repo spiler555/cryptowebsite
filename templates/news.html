@@ -1,0 +1,30 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+	
+
+<div  id="news">
+    <div class="container">
+      <script src="https://www.cryptohopper.com/widgets/js/script"></script>
+      <div class="cryptohopper-web-widget" data-id="2" data-text_color="#ffffff" data-background_color="#293233" data-numcoins="50" data-theme="custom" data-realtime="on" data-currency="THB" data-ticker_position="anywhere" data-ticker_speed="50"></div><br>
+      <script type="text/javascript">
+        baseUrl = "https://widgets.cryptocompare.com/";
+        var scripts = document.getElementsByTagName("script");
+        var embedder = scripts[ scripts.length - 1 ];
+        var cccTheme = {"General":{"background":"#293233","borderColor":"#121212"},"PoweredBy":{"textColor":"#FFF","linkColor":"#191d1d"},"Data":{"priceColor":"#FFF","infoValueColor":"#FFF","borderColor":"#333"},"NewsItem":{"color":"#FFF","borderColor":"#444"},"Chart":{"fillColor":"#191d1d","borderColor":"#454d55"},"Conversion":{"background":"#000","color":"#CCC"}};
+        (function (){
+        var appName = encodeURIComponent(window.location.hostname);
+        if(appName==""){appName="local";}
+        var s = document.createElement("script");
+        s.type = "text/javascript";
+        s.async = true;
+        var theUrl = baseUrl+'serve/v1/coin/feed?fsym=BTC&tsym=USD';
+        s.src = theUrl + ( theUrl.indexOf("?") >= 0 ? "&" : "?") + "app=" + appName;
+        embedder.parentNode.appendChild(s);
+        })();
+        </script>
+        
+        
+    </div>
+  </div>
+
+{% endblock %}

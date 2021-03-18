@@ -1,0 +1,41 @@
+{% extends 'base_layout.html' %}
+{% block body %}
+<style>
+	div > a {
+    text-decoration: none !important;
+	font-size: 25px;
+	font-weight: bold;
+	}
+</style>
+<!--BTC-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Bitcoin&bgcolor=293233&bordercolor=FFFFFF&datecolor=FFFFFF"></script>
+<!--ETH-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Ethereum&bgcolor=293233&bordercolor=FFFFFF&datecolor=FFFFFF"></script>
+<!--ADA-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Cardano&bgcolor=293233&bordercolor=808080&datecolor=FFFFFF"></script>
+<!--BNB-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Binance Coin&bgcolor=293233&bordercolor=808080&datecolor=FFFFFF"></script>
+<!--DOT-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Polkadot&bgcolor=293233&bordercolor=808080&datecolor=808080"></script>
+<!--XRP-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=XRP&bgcolor=293233&bordercolor=808080&datecolor=808080"></script>
+<!--UNI-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Uniswap&bgcolor=293233&bordercolor=808080&datecolor=808080"></script>
+<!--LTC-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Litecoin&bgcolor=293233&bordercolor=808080&datecolor=808080"></script>
+<!--LINK-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Chainlink&bgcolor=293233&bordercolor=808080&datecolor=808080"></script>
+<!--XLM-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Stellar&bgcolor=293233&bordercolor=808080&datecolor=FFFFFF"></script>
+<!--DOGE-->
+<script src="https://coindar.org/api/widget_events?language=en&limit=5&coin=Dogecoin&bgcolor=293233&bordercolor=808080&datecolor=FFFFFF"></script>
+
+<style>
+	.coindar-widget {border-top: 20px solid #191d1d; background-color: #293233; border-left: 3px solid #191d1d; border-right: 3px solid #191d1d;}
+	.coindar-header {padding: 10px; border-bottom: 3px solid #454d55;  text-align: center; align-items: center;}
+	.coindar-image {width: 32px; height: 32px; margin-left: 30px;}
+	.coindar-content {width: 100%;  }
+    .coindar-event {padding: 50px; width: 100%; line-height: 1.5em; width: 100%; border-bottom: 1px solid #454d55; }
+    .coindar-date {font-size: medium; width: 100%; color: #FFFFFF; }
+</style>
+	{% endblock %}
